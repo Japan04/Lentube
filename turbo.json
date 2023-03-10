@@ -1,0 +1,20 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "pipeline": {
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": ["dist/**", ".next/**"]
+    },
+    "export": {
+      "dependsOn": ["build"],
+      "outputs": ["out/**"]
+    },
+    "start": { "cache": false },
+    "e2e:test": { "dependsOn": ["^build"] },
+    "worker:deploy": { "outputs": [] },
+    "lint": { "outputs": [] },
+    "codegen": { "outputs": [] },
+    "dev": { "cache": false },
+    "dev:test": { "cache": false }
+  }
+}
